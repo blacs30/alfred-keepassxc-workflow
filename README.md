@@ -60,7 +60,7 @@
 #### Requirements
 
 - Alfred 4+
-- KeepassXC 2.7+
+- KeepassXC 2.8+
 - Python 3.6+ 
 
 #### Download and import

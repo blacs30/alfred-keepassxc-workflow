@@ -18,7 +18,7 @@ CancelError.errorNumber = cancelErrorNumber
 const pythonRequiredMajorVersion = 3
 const pythonRequiredMinorVersion = 6
 const keepassxcRequiredMajorVersion = 2
-const keepassxcRequiredMinorVersion = 7
+const keepassxcRequiredMinorVersion = 8
 
 
 function isFileExists(path) {
@@ -679,7 +679,10 @@ function tryFindOutKeepassXCCLIVersion(keepassxcPath) {
     }
 
     try {
-        return app.doShellScript(`${keepassxcPath} -v`)
+        let output = app.doShellScript(`${keepassxcPath} -v`)
+        let parts = output.split(" ")
+        let actualVersion = parts[parts.length - 1]
+        return actualVersion
     } catch (err) {
         return ""
     }
